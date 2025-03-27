@@ -1,0 +1,64 @@
+.cv-form {
+  width: 100%;
+  max-width: 750px;
+
+  & span {
+    color: var(--txt-secondary);
+  }
+
+  & h2 {
+    text-align: center;
+  }
+}
+
+.general-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.general-form-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  & .form-field:last-child {
+    grid-column: span 2;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+input,
+textarea {
+  font: inherit;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: none;
+}
+
+.move-btn {
+  border: none;
+  border-radius: 4px;
+  font: inherit;
+  background-color: #000;
+  color: #fff;
+  padding-block: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.25s;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
