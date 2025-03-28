@@ -13,3 +13,13 @@ main {
   flex-direction: column;
   align-items: center;
 }
+
+.subtitle {
+  color: var(--txt-secondary);
+  font-weight: 500;
+}
+
+.info {
+  color: var(--txt-secondary);
+  font-size: 0.9rem;
+}

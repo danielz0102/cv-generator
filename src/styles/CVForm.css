@@ -1,20 +1,13 @@
-.cv-form {
-  width: 100%;
-  max-width: 750px;
-
-  & span {
-    color: var(--txt-secondary);
-  }
-
-  & h2 {
-    text-align: center;
-  }
-}
-
 .form {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
+  max-width: 600px;
+
+  & h2 {
+    text-align: center;
+  }
 
   & > .move-btn {
     align-self: center;
@@ -112,9 +105,15 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 100%;
   padding: 16px;
-  cursor: pointer;
   font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+
+  transition: opacity 0.25s;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }

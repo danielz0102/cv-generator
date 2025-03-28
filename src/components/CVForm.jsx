@@ -1,21 +1,17 @@
 import '@/styles/CVForm.css'
 import { useState } from 'react'
 import { GeneralForm } from './GeneralForm'
-import { ProfessionalForm } from './ProfessionalForm'
+import { ExperienceQuestion } from './ExperienceQuestion'
 
 export function CVForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const [data, setData] = useState({})
   const steps = [
     <GeneralForm onSubmit={handleSubmit} />,
-    <ProfessionalForm
-      onSubmit={handleSubmit}
-      onPrevious={() => setCurrentStep(currentStep - 1)}
-    />,
+    <ExperienceQuestion onPrevious={handlePrevious} onSubmit={handleSubmit} />,
   ]
 
   function handleSubmit(newData) {
-    console.log(newData)
     setData({ ...data, ...newData })
 
     if (currentStep !== steps.length - 1) {
@@ -23,5 +19,10 @@ export function CVForm() {
     }
   }
 
-  return <div className="cv-form">{steps[currentStep]}</div>
+  function handlePrevious() {
+    if (currentStep === 0) return
+    setCurrentStep(currentStep - 1)
+  }
+
+  return steps[currentStep]
 }

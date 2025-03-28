@@ -21,10 +21,12 @@ export function InputField({
 
   return (
     <div className="form-field">
-      <label htmlFor={attributes.id}>
-        {label}
-        {showOptional && <span> (optional)</span>}
-      </label>
+      {label && (
+        <label htmlFor={attributes.id}>
+          {label}
+          {showOptional && <span className="info"> (optional)</span>}
+        </label>
+      )}
       <InputComponent
         {...attributes}
         {...(isCheckbox ? { checked: value } : { value: value })}
