@@ -11,13 +11,17 @@
   }
 }
 
-.general-form {
+.form {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  & > .move-btn {
+    align-self: center;
+  }
 }
 
-.general-form-fields {
+.general-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
@@ -31,6 +35,12 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  &:has(input[type='checkbox']) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
 }
 
 input,
@@ -45,13 +55,22 @@ textarea {
   resize: none;
 }
 
+.btns-container {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
 .move-btn {
-  border: none;
+  --bg-color: #000;
+  --txt-color: #fff;
+
+  border: 1px solid #ccc;
   border-radius: 4px;
   font: inherit;
-  background-color: #000;
-  color: #fff;
-  padding-block: 8px;
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+  padding: 8px 32px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,4 +80,41 @@ textarea {
   &:hover {
     opacity: 0.75;
   }
+}
+
+.btn-secondary {
+  --bg-color: #f0f0f0;
+  --txt-color: #000;
+}
+
+.counter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.counter {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  & span {
+    width: 1rem;
+    color: var(--txt-primary);
+    text-align: center;
+  }
+}
+
+.counter-btn {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  padding: 16px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
