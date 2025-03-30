@@ -24,6 +24,21 @@
   }
 }
 
+.professional-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-date-range {
+  display: flex;
+  gap: 8px;
+
+  & > .form-field {
+    flex: 1;
+  }
+}
+
 .form-field {
   display: flex;
   flex-direction: column;
