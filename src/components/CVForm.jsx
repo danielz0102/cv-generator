@@ -6,21 +6,29 @@ import { ProfessionalForm } from './ProfessionalForm'
 
 export function CVForm() {
   const [currentStep, setCurrentStep] = useState(1)
-  const [data, setData] = useState({})
+  const [data, setData] = useState({
+    general: {},
+    companies: [{}],
+    education: {},
+  })
   const steps = [
-    <GeneralForm onSubmit={handleSubmit} />,
-    <ExperienceQuestion onPrevious={handlePrevious} onSubmit={handleSubmit} />,
+    <GeneralForm onNext={handleNext} data={data} setData={setData} />,
+    <ExperienceQuestion
+      onPrevious={handlePrevious}
+      onNext={handleNext}
+      data={data}
+      setData={setData}
+    />,
     <ProfessionalForm
       onPrevious={handlePrevious}
-      onSubmit={handleSubmit}
-      numberOfCompanies={data.numberOfCompanies}
+      onNext={handleNext}
+      data={data}
+      setData={setData}
     />,
   ]
 
-  function handleSubmit(newData) {
-    console.log(newData)
-    setData({ ...data, ...newData })
-
+  function handleNext() {
+    console.log(data)
     if (currentStep !== steps.length - 1) {
       setCurrentStep(currentStep + 1)
     }

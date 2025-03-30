@@ -2,23 +2,17 @@ import { InputField } from './InputField'
 import { PreviousIcon, NextIcon } from './Icons'
 import { useState } from 'react'
 
-export function ProfessionalForm({ onPrevious, onSubmit, numberOfCompanies }) {
+export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
   const [currentCompanyIndex, setCurrentCompanyIndex] = useState(0)
-  const [data, setData] = useState([])
-  const currentCompany = data[currentCompanyIndex] || {}
+  const numberOfCompanies = data.companies.length
+  const currentCompany = data.companies[currentCompanyIndex] ?? {}
   const isLastCompany = currentCompanyIndex === numberOfCompanies - 1
 
   function handleSubmit(event) {
     event.preventDefault()
-    const form = event.currentTarget
-    const newCompany = Object.fromEntries(new FormData(form))
-    const newData = structuredClone(data)
-
-    newData[currentCompanyIndex] = newCompany
-    setData(newData)
 
     if (isLastCompany) {
-      onSubmit({ companies: newData })
+      onNext()
     } else {
       setCurrentCompanyIndex(currentCompanyIndex + 1)
     }
@@ -31,6 +25,15 @@ export function ProfessionalForm({ onPrevious, onSubmit, numberOfCompanies }) {
     }
 
     setCurrentCompanyIndex(currentCompanyIndex - 1)
+  }
+
+  function handleChange(event) {
+    const { name, value } = event.currentTarget
+    const newData = structuredClone(data)
+
+    newData.companies[currentCompanyIndex] ??= {}
+    newData.companies[currentCompanyIndex][name] = value
+    setData(newData)
   }
 
   return (
@@ -49,6 +52,7 @@ export function ProfessionalForm({ onPrevious, onSubmit, numberOfCompanies }) {
             placeholder: 'Google',
             required: true,
           }}
+          onChange={handleChange}
         />
         <InputField
           key={`jobTitle-${currentCompanyIndex}`}
@@ -61,6 +65,7 @@ export function ProfessionalForm({ onPrevious, onSubmit, numberOfCompanies }) {
             placeholder: 'Software Engineer',
             required: true,
           }}
+          onChange={handleChange}
         />
         <InputField
           key={`jobCity-${currentCompanyIndex}`}
@@ -73,6 +78,7 @@ export function ProfessionalForm({ onPrevious, onSubmit, numberOfCompanies }) {
             placeholder: 'California, USA',
             required: true,
           }}
+          onChange={handleChange}
         />
         <div className="form-date-range">
           <InputField
@@ -86,6 +92,7 @@ export function ProfessionalForm({ onPrevious, onSubmit, numberOfCompanies }) {
               required: true,
               max: new Date().toISOString().split('T')[0],
             }}
+            onChange={handleChange}
           />
           <InputField
             key={`endDate-${currentCompanyIndex}`}
@@ -98,6 +105,7 @@ export function ProfessionalForm({ onPrevious, onSubmit, numberOfCompanies }) {
               required: true,
               max: new Date().toISOString().split('T')[0],
             }}
+            onChange={handleChange}
           />
         </div>
       </div>

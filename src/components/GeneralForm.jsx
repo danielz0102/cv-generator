@@ -1,12 +1,21 @@
 import { InputField } from './InputField'
 import { NextIcon } from './Icons'
 
-export function GeneralForm({ onSubmit }) {
+export function GeneralForm({ onNext, data, setData }) {
+  const generalData = data.generalData
+
   function handleSubmit(event) {
     event.preventDefault()
-    const form = event.currentTarget
-    const data = Object.fromEntries(new FormData(form))
-    onSubmit(data)
+    onNext()
+  }
+
+  function handleChange(event) {
+    const { name, value } = event.currentTarget
+    const newData = structuredClone(data)
+
+    newData.generalData ??= {}
+    newData.generalData[name] = value
+    setData(newData)
   }
 
   return (
@@ -15,6 +24,7 @@ export function GeneralForm({ onSubmit }) {
       <div className="general-fields">
         <InputField
           label="Your name"
+          initialValue={generalData?.name ?? ''}
           attributes={{
             id: 'name',
             name: 'name',
@@ -22,9 +32,11 @@ export function GeneralForm({ onSubmit }) {
             placeholder: 'John Doe',
             required: true,
           }}
+          onChange={handleChange}
         />
         <InputField
           label="Your email"
+          initialValue={generalData?.email ?? ''}
           attributes={{
             id: 'email',
             name: 'email',
@@ -32,9 +44,11 @@ export function GeneralForm({ onSubmit }) {
             placeholder: 'email@example.com',
             required: true,
           }}
+          onChange={handleChange}
         />
         <InputField
           label="City where you live"
+          initialValue={generalData?.city ?? ''}
           attributes={{
             id: 'city',
             name: 'city',
@@ -42,9 +56,11 @@ export function GeneralForm({ onSubmit }) {
             placeholder: 'California, USA',
             required: true,
           }}
+          onChange={handleChange}
         />
         <InputField
           label="Your phone number"
+          initialValue={generalData?.phone ?? ''}
           showOptional={true}
           attributes={{
             id: 'phone',
@@ -53,9 +69,11 @@ export function GeneralForm({ onSubmit }) {
             placeholder: '123 456 7890',
             pattern: '[0-9]{10}',
           }}
+          onChange={handleChange}
         />
         <InputField
           label="Write a short paragraph about yourself"
+          initialValue={generalData?.about ?? ''}
           attributes={{
             id: 'about',
             name: 'about',
@@ -66,6 +84,7 @@ export function GeneralForm({ onSubmit }) {
             maxLength: '400',
             required: true,
           }}
+          onChange={handleChange}
         />
       </div>
       <button className="move-btn">
