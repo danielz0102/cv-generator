@@ -29,6 +29,7 @@ export function CVForm() {
 
   function handleNext() {
     console.log(data)
+
     if (currentStep !== steps.length - 1) {
       setCurrentStep(currentStep + 1)
     }

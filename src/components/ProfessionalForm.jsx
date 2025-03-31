@@ -54,33 +54,35 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
           }}
           onChange={handleChange}
         />
-        <InputField
-          key={`jobTitle-${currentCompanyIndex}`}
-          initialValue={currentCompany?.jobTitle ?? ''}
-          label="Your job title"
-          attributes={{
-            id: 'jobTitle',
-            name: 'jobTitle',
-            type: 'text',
-            placeholder: 'Software Engineer',
-            required: true,
-          }}
-          onChange={handleChange}
-        />
-        <InputField
-          key={`jobCity-${currentCompanyIndex}`}
-          initialValue={currentCompany?.jobCity ?? ''}
-          label="City where you worked"
-          attributes={{
-            id: 'jobCity',
-            name: 'jobCity',
-            type: 'text',
-            placeholder: 'California, USA',
-            required: true,
-          }}
-          onChange={handleChange}
-        />
-        <div className="form-date-range">
+        <div className="form-field-group">
+          <InputField
+            key={`title-${currentCompanyIndex}`}
+            initialValue={currentCompany?.title ?? ''}
+            label="Your job title"
+            attributes={{
+              id: 'title',
+              name: 'title',
+              type: 'text',
+              placeholder: 'Software Engineer',
+              required: true,
+            }}
+            onChange={handleChange}
+          />
+          <InputField
+            key={`city-${currentCompanyIndex}`}
+            initialValue={currentCompany?.city ?? ''}
+            label="City where you worked"
+            attributes={{
+              id: 'city',
+              name: 'city',
+              type: 'text',
+              placeholder: 'California, USA',
+              required: true,
+            }}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-field-group">
           <InputField
             key={`startDate-${currentCompanyIndex}`}
             initialValue={currentCompany?.startDate ?? ''}
@@ -108,6 +110,21 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
             onChange={handleChange}
           />
         </div>
+        <InputField
+          key={`description-${currentCompanyIndex}`}
+          initialValue={currentCompany?.description ?? ''}
+          label="Describe the main responsibilities of your job"
+          attributes={{
+            id: 'description',
+            name: 'description',
+            type: 'textarea',
+            placeholder: 'Worked on the Google Search team...',
+            required: true,
+            rows: '5',
+            maxLength: '500',
+          }}
+          onChange={handleChange}
+        />
       </div>
       <div className="btns-container">
         <button
