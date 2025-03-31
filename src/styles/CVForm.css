@@ -24,7 +24,8 @@
   }
 }
 
-.professional-fields {
+.professional-fields,
+.education-fields {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -45,8 +46,8 @@
   gap: 4px;
 
   &:has(input[type='checkbox']) {
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
     gap: 8px;
   }
 }

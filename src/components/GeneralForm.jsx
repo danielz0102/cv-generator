@@ -61,7 +61,7 @@ export function GeneralForm({ onNext, data, setData }) {
         <InputField
           label="Your phone number"
           initialValue={generalData?.phone ?? ''}
-          showOptional={true}
+          info="optional"
           attributes={{
             id: 'phone',
             name: 'phone',

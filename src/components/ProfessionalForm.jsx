@@ -38,7 +38,7 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <h2>Professional Information</h2>
+      <h2>Professional Experience</h2>
       <p className="subtitle">{`Company #${currentCompanyIndex + 1}`}</p>
       <div className="professional-fields">
         <InputField

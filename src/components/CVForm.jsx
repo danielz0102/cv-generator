@@ -3,9 +3,10 @@ import { useState } from 'react'
 import { GeneralForm } from './GeneralForm'
 import { ExperienceQuestion } from './ExperienceQuestion'
 import { ProfessionalForm } from './ProfessionalForm'
+import { EducationForm } from './EducationForm'
 
 export function CVForm() {
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(3)
   const [data, setData] = useState({
     general: {},
     companies: [{}],
@@ -20,6 +21,12 @@ export function CVForm() {
       setData={setData}
     />,
     <ProfessionalForm
+      onPrevious={handlePrevious}
+      onNext={handleNext}
+      data={data}
+      setData={setData}
+    />,
+    <EducationForm
       onPrevious={handlePrevious}
       onNext={handleNext}
       data={data}

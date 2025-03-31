@@ -3,7 +3,7 @@ import { useState } from 'react'
 export function InputField({
   label,
   initialValue = '',
-  showOptional = false,
+  info,
   attributes = {},
   onChange,
 }) {
@@ -24,7 +24,7 @@ export function InputField({
       {label && (
         <label htmlFor={attributes.id}>
           {label}
-          {showOptional && <span className="info"> (optional)</span>}
+          {info && <span className="info"> {`(${info})`}</span>}
         </label>
       )}
       <InputComponent

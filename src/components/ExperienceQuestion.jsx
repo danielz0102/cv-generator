@@ -42,7 +42,7 @@ export function ExperienceQuestion({ onPrevious, onNext, data, setData }) {
       <h2>Professional Experience</h2>
       <InputField
         initialValue={hasExperience}
-        label="Have you worked in a company before?"
+        label="I have worked in a company before"
         attributes={{
           id: 'ask',
           name: 'ask',
