@@ -4,13 +4,15 @@ import { GeneralForm } from './GeneralForm'
 import { ExperienceQuestion } from './ExperienceQuestion'
 import { ProfessionalForm } from './ProfessionalForm'
 import { EducationForm } from './EducationForm'
+import { SkillsForm } from './SkillsForm'
 
 export function CVForm() {
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(4)
   const [data, setData] = useState({
     general: {},
     companies: [],
     education: {},
+    skills: [],
   })
   const steps = [
     <GeneralForm onNext={handleNext} data={data} setData={setData} />,
@@ -29,6 +31,12 @@ export function CVForm() {
     <EducationForm
       onPrevious={handlePrevious}
       onNext={handleNext}
+      data={data}
+      setData={setData}
+    />,
+    <SkillsForm
+      onPrevious={handlePrevious}
+      onSubmit={handleSubmit}
       data={data}
       setData={setData}
     />,
@@ -60,6 +68,10 @@ export function CVForm() {
     }
 
     setCurrentStep(currentStep - stepsToMove)
+  }
+
+  function handleSubmit() {
+    console.log(data)
   }
 
   return steps[currentStep]
