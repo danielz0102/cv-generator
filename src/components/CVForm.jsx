@@ -6,10 +6,10 @@ import { ProfessionalForm } from './ProfessionalForm'
 import { EducationForm } from './EducationForm'
 
 export function CVForm() {
-  const [currentStep, setCurrentStep] = useState(3)
+  const [currentStep, setCurrentStep] = useState(1)
   const [data, setData] = useState({
     general: {},
-    companies: [{}],
+    companies: [],
     education: {},
   })
   const steps = [
@@ -37,14 +37,29 @@ export function CVForm() {
   function handleNext() {
     console.log(data)
 
-    if (currentStep !== steps.length - 1) {
-      setCurrentStep(currentStep + 1)
+    if (currentStep === steps.length - 1) return
+
+    const hasExperience = data.companies.length > 0
+    let stepsToMove = 1
+
+    if (currentStep === 1 && !hasExperience) {
+      stepsToMove++
     }
+
+    setCurrentStep(currentStep + stepsToMove)
   }
 
   function handlePrevious() {
     if (currentStep === 0) return
-    setCurrentStep(currentStep - 1)
+
+    const hasExperience = data.companies.length > 0
+    let stepsToMove = 1
+
+    if (currentStep === 3 && !hasExperience) {
+      stepsToMove++
+    }
+
+    setCurrentStep(currentStep - stepsToMove)
   }
 
   return steps[currentStep]
