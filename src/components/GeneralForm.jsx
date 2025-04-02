@@ -2,7 +2,7 @@ import { InputField } from './InputField'
 import { NextIcon } from './Icons'
 
 export function GeneralForm({ onNext, data, setData }) {
-  const generalData = data.generalData
+  const generalData = data.general
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -13,8 +13,8 @@ export function GeneralForm({ onNext, data, setData }) {
     const { name, value } = event.currentTarget
     const newData = structuredClone(data)
 
-    newData.generalData ??= {}
-    newData.generalData[name] = value
+    newData.general ??= {}
+    newData.general[name] = value
     setData(newData)
   }
 

@@ -11,6 +11,9 @@ importers:
       '@fontsource-variable/inter':
         specifier: ^5.2.5
         version: 5.2.5
+      '@fontsource-variable/stix-two-text':
+        specifier: ^5.2.5
+        version: 5.2.5
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -241,6 +244,9 @@ packages:
 
   '@fontsource-variable/inter@5.2.5':
     resolution: {integrity: sha512-TrWffUAFOnT8zroE9YmGybagoOgM/HjRqMQ8k9R0vVgXlnUh/vnpbGPAS/Caz1KIlOPnPGh6fvJbb7DHbFCncA==}
+
+  '@fontsource-variable/stix-two-text@5.2.5':
+    resolution: {integrity: sha512-vagbAJmaHHTB3Y6mf+9bb7ABM7LjECvn7YvPdt8AmBLqFdbYI717R0gA45yksaSvVFDYWhcVXdFaQUgl7mKZDw==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -960,6 +966,8 @@ snapshots:
       levn: 0.4.1
 
   '@fontsource-variable/inter@5.2.5': {}
+
+  '@fontsource-variable/stix-two-text@5.2.5': {}
 
   '@humanfs/core@0.19.1': {}
 

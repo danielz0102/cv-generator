@@ -111,12 +111,12 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
           />
         </div>
         <InputField
-          key={`description-${currentCompanyIndex}`}
-          initialValue={currentCompany?.description ?? ''}
+          key={`responsabilities-${currentCompanyIndex}`}
+          initialValue={currentCompany?.responsabilities ?? ''}
           label="Describe the main responsibilities of your job"
           attributes={{
-            id: 'description',
-            name: 'description',
+            id: 'responsabilities',
+            name: 'responsabilities',
             type: 'textarea',
             placeholder: 'Worked on the Google Search team...',
             required: true,

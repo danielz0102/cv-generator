@@ -7,6 +7,19 @@
   gap: 32px;
 }
 
+.app-header {
+  text-align: center;
+
+  & h1 {
+    font-size: 3rem;
+    margin-bottom: 4px;
+  }
+
+  & p {
+    color: #555;
+  }
+}
+
 main {
   flex: 1;
   display: flex;

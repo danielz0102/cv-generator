@@ -1,10 +1,10 @@
 import { InputField } from './InputField'
 import { PreviousIcon, SubmitIcon } from './Icons'
 
-export function SkillsForm({ onPrevious, onSubmit, data, setData }) {
+export function SkillsForm({ onPrevious, onNext, data, setData }) {
   function handleSubmit(event) {
     event.preventDefault()
-    onSubmit()
+    onNext()
   }
 
   function handleChange(event) {
@@ -14,7 +14,6 @@ export function SkillsForm({ onPrevious, onSubmit, data, setData }) {
     const newData = structuredClone(data)
 
     newData.skills[index] = value
-    console.log({ newData })
     setData(newData)
   }
 

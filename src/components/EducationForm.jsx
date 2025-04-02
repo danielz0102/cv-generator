@@ -19,12 +19,17 @@ export function EducationForm({ onPrevious, onNext, data, setData }) {
     setData(newData)
   }
 
-  function handleCheck() {
-    setNoDegree(!noDegree)
+  function handleCheck(event) {
+    const checked = event.currentTarget.checked
+    const form = event.currentTarget.form
 
-    const newData = structuredClone(data)
-    newData.education = {}
-    setData(newData)
+    setNoDegree(checked)
+
+    setTimeout(() => {
+      const newData = structuredClone(data)
+      newData.education = checked ? {} : Object.fromEntries(new FormData(form))
+      setData(newData)
+    }, 0)
   }
 
   return (

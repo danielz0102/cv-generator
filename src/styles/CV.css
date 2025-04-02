@@ -1,0 +1,73 @@
+.cv {
+  --divider: 1.5px solid #000;
+  font-family: 'STIX Two Text Variable', serif;
+  flex: 1;
+  border: 1.5px solid var(--txt-secondary);
+  padding: 32px;
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+
+  & h2,
+  h3 {
+    font-weight: bold;
+  }
+
+  & h2 {
+    font-size: 2rem;
+    margin-bottom: 4px;
+  }
+
+  & h3 {
+    text-transform: uppercase;
+    border-bottom: var(--divider);
+  }
+}
+
+.cv__header {
+  text-align: center;
+  border-bottom: var(--divider);
+  padding: 4px;
+}
+
+.cv__about {
+  & p {
+    font-style: italic;
+  }
+}
+
+.cv__section,
+.company,
+.companies,
+.cv__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cv__list {
+  padding: revert;
+}
+
+.company__header,
+.school {
+  display: flex;
+  justify-content: space-between;
+}
+
+.company__header__row,
+.school__row {
+  max-width: 50%;
+}
+
+.company__header__row:last-child,
+.school__row:last-child {
+  text-align: right;
+}
+
+.school h4 {
+  text-transform: uppercase;
+}
