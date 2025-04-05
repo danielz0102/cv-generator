@@ -10,9 +10,9 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
   const maxStartDate = new Date(currentCompany.endDate || Date.now())
     .toISOString()
     .split('T')[0]
-  const minEndDate = new Date(currentCompany.startDate || Date.now())
-    .toISOString()
-    .split('T')[0]
+  const minEndDate = !currentCompany.startDate
+    ? null
+    : new Date(currentCompany.startDate).toISOString().split('T')[0]
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -47,8 +47,6 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
     } else {
       newData.companies[currentCompanyIndex][name] = value
     }
-
-    console.log(newData.companies)
 
     setData(newData)
   }
