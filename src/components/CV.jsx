@@ -67,7 +67,7 @@ function CVEducation({ data }) {
             <strong>{city}</strong>
           </p>
           <p>
-            <em>{date}</em>
+            <em>{formatDate(date)}</em>
           </p>
         </div>
       </article>
@@ -91,7 +91,7 @@ function Company({ data }) {
           </p>
           <p>
             <em>
-              {startDate}–{endDate}
+              {formatDate(startDate)} – {formatDate(endDate)}
             </em>
           </p>
         </div>
@@ -114,4 +114,26 @@ function Skills({ data }) {
       </ul>
     </section>
   )
+}
+
+function formatDate(dateString) {
+  if (!dateString) return ''
+
+  const date = new Date(dateString)
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
+
+  return `${months[date.getMonth()]} ${date.getFullYear()}`
 }

@@ -1,6 +1,7 @@
 .cv {
   --divider: 1.5px solid #000;
   font-family: 'STIX Two Text Variable', serif;
+  font-size: 11pt;
   flex: 1;
   border: 1.5px solid var(--txt-secondary);
   padding: 32px;
@@ -17,7 +18,7 @@
   }
 
   & h2 {
-    font-size: 2rem;
+    font-size: 24pt;
     margin-bottom: 4px;
   }
 
