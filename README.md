@@ -3,7 +3,6 @@
 ## TODO:
 
 Important:
-- Add job responsabilites as a list instead of as a paragraph
 - Download CV on PDF and DOCX
 - Refactor styles
 - Improve styles

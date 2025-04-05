@@ -55,9 +55,11 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
     <form className="form" onSubmit={handleSubmit}>
       <h2>Professional Experience</h2>
       <p className="subtitle">{`Company #${currentCompanyIndex + 1}`}</p>
-      <div className="professional-fields">
+      <div
+        className="professional-fields"
+        key={`company-${currentCompanyIndex}`}
+      >
         <InputField
-          key={`company-${currentCompanyIndex}`}
           initialValue={currentCompany?.company ?? ''}
           label="Company where you worked"
           attributes={{
@@ -72,7 +74,6 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
         />
         <div className="form-field-group">
           <InputField
-            key={`title-${currentCompanyIndex}`}
             initialValue={currentCompany?.title ?? ''}
             label="Your job title"
             attributes={{
@@ -86,7 +87,6 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
             errorMsgs={{ valueMissing: 'This field is required' }}
           />
           <InputField
-            key={`city-${currentCompanyIndex}`}
             initialValue={currentCompany?.city ?? ''}
             label="City where you worked"
             attributes={{
@@ -102,7 +102,6 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
         </div>
         <div className="form-field-group">
           <InputField
-            key={`startDate-${currentCompanyIndex}`}
             initialValue={currentCompany?.startDate ?? ''}
             label="Start date"
             attributes={{
@@ -119,7 +118,6 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
             }}
           />
           <InputField
-            key={`endDate-${currentCompanyIndex}`}
             initialValue={currentCompany?.endDate ?? ''}
             label="End date"
             attributes={{

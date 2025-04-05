@@ -7,7 +7,7 @@ import { EducationForm } from './EducationForm'
 import { SkillsForm } from './SkillsForm'
 
 export function CVForm({ data, setData, onSubmit }) {
-  const [currentStep, setCurrentStep] = useState(2)
+  const [currentStep, setCurrentStep] = useState(1)
   const steps = [
     <GeneralForm onNext={handleNext} data={data} setData={setData} />,
     <ExperienceQuestion
