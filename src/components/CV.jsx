@@ -96,7 +96,11 @@ function Company({ data }) {
           </p>
         </div>
       </header>
-      <p>{responsabilities}</p>
+      <ul className="responsabilities">
+        {responsabilities?.map((responsability, index) => (
+          <li key={index}>{responsability}</li>
+        ))}
+      </ul>
     </article>
   )
 }

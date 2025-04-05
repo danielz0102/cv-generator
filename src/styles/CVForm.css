@@ -26,7 +26,8 @@
 
 .professional-fields,
 .education-fields,
-.skills-fields {
+.skills-fields,
+.responsabilities {
   display: flex;
   flex-direction: column;
   gap: 16px;

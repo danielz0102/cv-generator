@@ -36,9 +36,20 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
   function handleChange(event) {
     const { name, value } = event.currentTarget
     const newData = structuredClone(data)
+    const isResponsability = name.startsWith('responsability-')
 
     newData.companies[currentCompanyIndex] ??= {}
-    newData.companies[currentCompanyIndex][name] = value
+
+    if (isResponsability) {
+      const index = Number(name.split('-')[1])
+      newData.companies[currentCompanyIndex].responsabilities ??= []
+      newData.companies[currentCompanyIndex].responsabilities[index] = value
+    } else {
+      newData.companies[currentCompanyIndex][name] = value
+    }
+
+    console.log(newData.companies)
+
     setData(newData)
   }
 
@@ -129,22 +140,82 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
             }}
           />
         </div>
-        <InputField
+        <div
+          className="responsabilities"
           key={`responsabilities-${currentCompanyIndex}`}
-          initialValue={currentCompany?.responsabilities ?? ''}
-          label="Describe the main responsibilities of your job"
-          attributes={{
-            id: 'responsabilities',
-            name: 'responsabilities',
-            type: 'textarea',
-            placeholder: 'Worked on the Google Search team...',
-            required: true,
-            rows: '5',
-            maxLength: '500',
-          }}
-          onChange={handleChange}
-          errorMsgs={{ valueMissing: 'This field is required' }}
-        />
+        >
+          <p>
+            Describe some responsabilities you had{' '}
+            <span className="info">(optional, max. 5)</span>
+          </p>
+          <ul>
+            <li>
+              <InputField
+                initialValue={currentCompany.responsabilities?.[0] ?? ''}
+                attributes={{
+                  id: 'responsability-0',
+                  name: 'responsability-0',
+                  type: 'text',
+                  placeholder: 'Responsability 1...',
+                  maxLength: 75,
+                }}
+                onChange={handleChange}
+              />
+            </li>
+            <li>
+              <InputField
+                initialValue={currentCompany.responsabilities?.[1] ?? ''}
+                attributes={{
+                  id: 'responsability-1',
+                  name: 'responsability-1',
+                  type: 'text',
+                  placeholder: 'Responsability 2...',
+                  maxLength: 75,
+                }}
+                onChange={handleChange}
+              />
+            </li>
+            <li>
+              <InputField
+                initialValue={currentCompany.responsabilities?.[2] ?? ''}
+                attributes={{
+                  id: 'responsability-2',
+                  name: 'responsability-2',
+                  type: 'text',
+                  placeholder: 'Responsability 3...',
+                  maxLength: 75,
+                }}
+                onChange={handleChange}
+              />
+            </li>
+            <li>
+              <InputField
+                initialValue={currentCompany.responsabilities?.[3] ?? ''}
+                attributes={{
+                  id: 'responsability-3',
+                  name: 'responsability-3',
+                  type: 'text',
+                  placeholder: 'Responsability 4...',
+                  maxLength: 75,
+                }}
+                onChange={handleChange}
+              />
+            </li>
+            <li>
+              <InputField
+                initialValue={currentCompany.responsabilities?.[4] ?? ''}
+                attributes={{
+                  id: 'responsability-4',
+                  name: 'responsability-4',
+                  type: 'text',
+                  placeholder: 'Responsability 5...',
+                  maxLength: 75,
+                }}
+                onChange={handleChange}
+              />
+            </li>
+          </ul>
+        </div>
       </div>
       <div className="btns-container">
         <button
