@@ -2,9 +2,16 @@
 
 ## TODO:
 
-- Add custom form validation
-- Add responsabilites as a list instead of as a paragraph
-- Check company city paragraph removing spaces?
-- Let download CV on PDF or DOCX
+Important:
+- Add job responsabilites as a list instead of as a paragraph
+- Download CV on PDF and DOCX
+- Improve styles
 - Responsive design
-- Add dark mode
+
+Little bugs:
+- Remove ° separator when the phone is missing
+- Check company city paragraph removing spaces?
+
+Interesting to add
+- Dark mode
+- Landing page

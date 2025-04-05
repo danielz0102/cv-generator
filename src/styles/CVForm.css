@@ -60,7 +60,14 @@
     flex-direction: row-reverse;
     justify-content: flex-end;
     gap: 8px;
+    font-size: 0.9rem;
   }
+}
+
+.error-msg {
+  font-size: 0.9rem;
+  color: var(--error);
+  min-height: 1.1rem;
 }
 
 input,

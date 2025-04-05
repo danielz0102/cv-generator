@@ -7,6 +7,12 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
   const numberOfCompanies = data.companies.length
   const currentCompany = data.companies[currentCompanyIndex] ?? {}
   const isLastCompany = currentCompanyIndex === numberOfCompanies - 1
+  const maxStartDate = new Date(currentCompany.endDate || Date.now())
+    .toISOString()
+    .split('T')[0]
+  const minEndDate = new Date(currentCompany.startDate || Date.now())
+    .toISOString()
+    .split('T')[0]
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -53,6 +59,7 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
             required: true,
           }}
           onChange={handleChange}
+          errorMsgs={{ valueMissing: 'This field is required' }}
         />
         <div className="form-field-group">
           <InputField
@@ -67,6 +74,7 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
               required: true,
             }}
             onChange={handleChange}
+            errorMsgs={{ valueMissing: 'This field is required' }}
           />
           <InputField
             key={`city-${currentCompanyIndex}`}
@@ -80,6 +88,7 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
               required: true,
             }}
             onChange={handleChange}
+            errorMsgs={{ valueMissing: 'This field is required' }}
           />
         </div>
         <div className="form-field-group">
@@ -92,9 +101,13 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
               name: 'startDate',
               type: 'date',
               required: true,
-              max: new Date().toISOString().split('T')[0],
+              max: maxStartDate,
             }}
             onChange={handleChange}
+            errorMsgs={{
+              valueMissing: 'This field is required',
+              rangeOverflow: 'Start date must be before end date',
+            }}
           />
           <InputField
             key={`endDate-${currentCompanyIndex}`}
@@ -106,8 +119,14 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
               type: 'date',
               required: true,
               max: new Date().toISOString().split('T')[0],
+              min: minEndDate,
             }}
             onChange={handleChange}
+            errorMsgs={{
+              valueMissing: 'This field is required',
+              rangeUnderflow: 'End date must be after start date',
+              rangeOverflow: 'End date must be today or earlier',
+            }}
           />
         </div>
         <InputField
@@ -124,6 +143,7 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
             maxLength: '500',
           }}
           onChange={handleChange}
+          errorMsgs={{ valueMissing: 'This field is required' }}
         />
       </div>
       <div className="btns-container">

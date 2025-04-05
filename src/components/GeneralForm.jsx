@@ -33,6 +33,7 @@ export function GeneralForm({ onNext, data, setData }) {
             required: true,
           }}
           onChange={handleChange}
+          errorMsgs={{ valueMissing: 'This field is required' }}
         />
         <InputField
           label="Your email"
@@ -40,11 +41,18 @@ export function GeneralForm({ onNext, data, setData }) {
           attributes={{
             id: 'email',
             name: 'email',
-            type: 'email',
+            type: 'text',
+            autoComplete: 'email',
             placeholder: 'email@example.com',
+            // eslint-disable-next-line no-useless-escape
+            pattern: '[^@]+@[^@]+\.[a-zA-Z]{2,4}',
             required: true,
           }}
           onChange={handleChange}
+          errorMsgs={{
+            valueMissing: 'This field is required',
+            patternMismatch: 'The email is not valid',
+          }}
         />
         <InputField
           label="City where you live"
@@ -57,6 +65,7 @@ export function GeneralForm({ onNext, data, setData }) {
             required: true,
           }}
           onChange={handleChange}
+          errorMsgs={{ valueMissing: 'This field is required' }}
         />
         <InputField
           label="Your phone number"
@@ -70,6 +79,10 @@ export function GeneralForm({ onNext, data, setData }) {
             pattern: '[0-9]{10}',
           }}
           onChange={handleChange}
+          errorMsgs={{
+            valueMissing: 'This field is required',
+            patternMismatch: 'You must enter a number of 10 digits',
+          }}
         />
         <InputField
           label="Write a short paragraph about yourself"
@@ -85,6 +98,7 @@ export function GeneralForm({ onNext, data, setData }) {
             required: true,
           }}
           onChange={handleChange}
+          errorMsgs={{ valueMissing: 'This field is required' }}
         />
       </div>
       <button className="move-btn">

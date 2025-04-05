@@ -1,6 +1,7 @@
 :root {
   --txt-primary: #000;
   --txt-secondary: #827575;
+  --error: #e02626;
 }
 
 * {

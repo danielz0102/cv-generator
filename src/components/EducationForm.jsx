@@ -25,6 +25,7 @@ export function EducationForm({ onPrevious, onNext, data, setData }) {
 
     setNoDegree(checked)
 
+    //Waiting for new render (disabled inputs are not included in FormData)
     setTimeout(() => {
       const newData = structuredClone(data)
       newData.education = checked ? {} : Object.fromEntries(new FormData(form))
@@ -48,6 +49,7 @@ export function EducationForm({ onPrevious, onNext, data, setData }) {
             disabled: noDegree,
           }}
           onChange={handleChange}
+          errorMsgs={{ valueMissing: 'This field is required' }}
         />
         <InputField
           initialValue={data.education?.degree ?? ''}
@@ -61,6 +63,7 @@ export function EducationForm({ onPrevious, onNext, data, setData }) {
             disabled: noDegree,
           }}
           onChange={handleChange}
+          errorMsgs={{ valueMissing: 'This field is required' }}
         />
         <InputField
           initialValue={data.education?.city ?? ''}
@@ -74,6 +77,7 @@ export function EducationForm({ onPrevious, onNext, data, setData }) {
             disabled: noDegree,
           }}
           onChange={handleChange}
+          errorMsgs={{ valueMissing: 'This field is required' }}
         />
         <InputField
           initialValue={data.education?.date ?? ''}
@@ -83,9 +87,13 @@ export function EducationForm({ onPrevious, onNext, data, setData }) {
             name: 'date',
             type: 'date',
             disabled: noDegree,
+            max: new Date().toISOString().split('T')[0],
           }}
           onChange={handleChange}
           info="if you are still studying, do not fill this field"
+          errorMsgs={{
+            rangeOverflow: 'Date must be today or earlier',
+          }}
         />
         <InputField
           label="I don't have a degree nor I am studying"
