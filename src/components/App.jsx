@@ -1,6 +1,7 @@
 import '@/styles/App.css'
 import { CVForm } from './CVForm'
 import { CV } from './CV'
+import { EditIcon } from './Icons'
 import { useState } from 'react'
 
 function App() {
@@ -26,7 +27,15 @@ function App() {
       </header>
       <main>
         {showCV ? (
-          <CV data={data} />
+          <>
+            <div className="options">
+              <button className="options__btn" onClick={() => setShowCV(false)}>
+                <EditIcon />
+                Edit
+              </button>
+            </div>
+            <CV data={data} />
+          </>
         ) : (
           <CVForm data={data} setData={setData} onSubmit={handleSubmit} />
         )}

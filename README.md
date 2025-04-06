@@ -3,6 +3,7 @@
 ## TODO:
 
 Important:
+- Edit button
 - Download CV on PDF and DOCX
 - Improve styles
 - Responsive design
