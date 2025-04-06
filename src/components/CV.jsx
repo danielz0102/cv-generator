@@ -8,7 +8,7 @@ export function CV({ data }) {
     <article className="cv">
       <CVHeader data={general} />
       {general?.about && (
-        <p className="cv__about">
+        <p className="cv-about">
           <em>{general.about}</em>
         </p>
       )}
@@ -25,8 +25,8 @@ function CVHeader({ data }) {
   const { name, city, email, phone } = data
 
   return (
-    <header className="cv__header">
-      <h2>{name}</h2>
+    <header className="cv-header">
+      <h2 className="cv-title">{name}</h2>
       <p>
         {city} · <a href={`mailto:${email}`}>{email}</a> · {phone}
       </p>
@@ -38,9 +38,9 @@ function CVProfessional({ data }) {
   if (!data || data.length === 0) return
 
   return (
-    <section className="cv__section">
-      <h3>Professional Experience</h3>
-      <div className="companies">
+    <section className="container">
+      <h3 className="cv-subtitle">Professional Experience</h3>
+      <div className="container big-gap">
         {data?.map((company) => (
           <Company key={company.title} data={company} />
         ))}
@@ -55,19 +55,19 @@ function CVEducation({ data }) {
   const { school, degree, city, date } = data
 
   return (
-    <section className="cv__section">
-      <h3>Education</h3>
-      <article className="school">
-        <div className="school__row">
-          <h4>{school}</h4>
+    <section className="container">
+      <h3 className="cv-subtitle">Education</h3>
+      <article className="header">
+        <div className="header-row">
+          <h4 className="school">{school}</h4>
           <p>{degree}</p>
         </div>
-        <div className="school__row">
+        <div className="header-row">
           <p>
             <strong>{city}</strong>
           </p>
           <p>
-            <em>{formatDate(date)}</em>
+            <em>{formatDate(date) || 'Studying'}</em>
           </p>
         </div>
       </article>
@@ -79,13 +79,13 @@ function Company({ data }) {
   const { company, title, city, startDate, endDate, responsabilities } = data
 
   return (
-    <article className="company">
-      <header className="company__header">
-        <div className="company__header__row">
+    <article className="container">
+      <header className="header">
+        <div className="header-row">
           <h4>{company}</h4>
           <p>{title}</p>
         </div>
-        <div className="company__header__row">
+        <div className="header-row">
           <p>
             <strong>{city}</strong>
           </p>
@@ -96,7 +96,7 @@ function Company({ data }) {
           </p>
         </div>
       </header>
-      <ul className="responsabilities">
+      <ul className="container">
         {responsabilities?.map((responsability, index) => (
           <li key={index}>{responsability}</li>
         ))}
@@ -109,9 +109,9 @@ function Skills({ data }) {
   if (!data || data.length === 0) return
 
   return (
-    <section className="cv__section">
-      <h3>Additional skills</h3>
-      <ul className="cv__list">
+    <section className="container">
+      <h3 className="cv-subtitle">Additional skills</h3>
+      <ul className="container">
         {data?.map((skill, index) => (
           <li key={index}>{skill}</li>
         ))}

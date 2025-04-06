@@ -23,3 +23,7 @@ h4,
 p {
   overflow-wrap: break-word;
 }
+
+ul {
+  padding-left: 32px;
+}

@@ -1,5 +1,6 @@
 .cv {
   --divider: 1.5px solid #000;
+
   font-family: 'STIX Two Text Variable', serif;
   font-size: 11pt;
   flex: 1;
@@ -11,64 +12,53 @@
   flex-direction: column;
   gap: 16px;
   overflow: hidden;
-
-  & h2,
-  h3 {
-    font-weight: bold;
-  }
-
-  & h2 {
-    font-size: 24pt;
-    margin-bottom: 4px;
-  }
-
-  & h3 {
-    text-transform: uppercase;
-    border-bottom: var(--divider);
-  }
 }
 
-.cv__header {
+.cv-header {
   text-align: center;
   border-bottom: var(--divider);
   padding: 4px;
 }
 
-.cv__about {
-  & p {
-    font-style: italic;
-  }
+.cv-title {
+  font-size: 24pt;
+  margin-bottom: 4px;
+  font-weight: bold;
 }
 
-.cv__section,
-.company,
-.companies,
-.cv__list {
+.cv-about {
+  font-style: italic;
+}
+
+.cv-subtitle {
+  text-transform: uppercase;
+  border-bottom: var(--divider);
+  font-weight: bold;
+}
+
+.container {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.cv__list {
-  padding: revert;
+.big-gap {
+  gap: 16px;
 }
 
-.company__header,
-.school {
+.header {
   display: flex;
   justify-content: space-between;
 }
 
-.company__header__row,
-.school__row {
+.header-row {
   max-width: 50%;
 }
 
-.company__header__row:last-child,
-.school__row:last-child {
+.header-row:last-child {
   text-align: right;
 }
 
-.school h4 {
+.school {
   text-transform: uppercase;
 }
