@@ -7,9 +7,6 @@ Important:
 - Improve styles
 - Responsive design
 
-Little bugs:
-- Remove ° separator when the phone is missing
-
 Interesting to add
 - Dark mode
 - Landing page

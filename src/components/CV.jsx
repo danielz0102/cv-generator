@@ -28,7 +28,7 @@ function CVHeader({ data }) {
     <header className="cv-header">
       <h2 className="cv-title">{name}</h2>
       <p>
-        {city} · <a href={`mailto:${email}`}>{email}</a> · {phone}
+        {city} · <a href={`mailto:${email}`}>{email}</a> {phone && `· ${phone}`}
       </p>
     </header>
   )
