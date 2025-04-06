@@ -41,11 +41,9 @@ export function GeneralForm({ onNext, data, setData }) {
           attributes={{
             id: 'email',
             name: 'email',
-            type: 'text',
-            autoComplete: 'email',
+            type: 'email',
             placeholder: 'email@example.com',
-            // eslint-disable-next-line no-useless-escape
-            pattern: '[^@]+@[^@]+\.[a-zA-Z]{2,4}',
+            pattern: '[^@]+@[^@]+\\.[a-zA-Z]{2,4}',
             required: true,
           }}
           onChange={handleChange}
@@ -75,13 +73,12 @@ export function GeneralForm({ onNext, data, setData }) {
             id: 'phone',
             name: 'phone',
             type: 'tel',
-            placeholder: '123 456 7890',
-            pattern: '[0-9]{10}',
+            placeholder: '+52 123 456 7890',
+            pattern: '\\+*[\\d\\s]{8,15}',
           }}
           onChange={handleChange}
           errorMsgs={{
-            valueMissing: 'This field is required',
-            patternMismatch: 'You must enter a number of 10 digits',
+            patternMismatch: 'The phone number is not valid',
           }}
         />
         <InputField

@@ -67,7 +67,7 @@ function CVEducation({ data }) {
             <strong>{city}</strong>
           </p>
           <p>
-            <em>{formatDate(date) || 'Studying'}</em>
+            <em>{formatDate(date) || 'Currently studying'}</em>
           </p>
         </div>
       </article>
