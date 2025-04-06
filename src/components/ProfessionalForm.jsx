@@ -55,10 +55,7 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
     <form className="form" onSubmit={handleSubmit}>
       <h2>Professional Experience</h2>
       <p className="subtitle">{`Company #${currentCompanyIndex + 1}`}</p>
-      <div
-        className="professional-fields"
-        key={`company-${currentCompanyIndex}`}
-      >
+      <div className="list" key={`company-${currentCompanyIndex}`}>
         <InputField
           initialValue={currentCompany?.company ?? ''}
           label="Company where you worked"
@@ -136,10 +133,7 @@ export function ProfessionalForm({ onPrevious, onNext, data, setData }) {
             }}
           />
         </div>
-        <div
-          className="responsabilities"
-          key={`responsabilities-${currentCompanyIndex}`}
-        >
+        <div className="list" key={`responsabilities-${currentCompanyIndex}`}>
           <p>
             Describe some responsabilities you had{' '}
             <span className="info">(optional, max. 5)</span>

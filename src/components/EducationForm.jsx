@@ -36,7 +36,7 @@ export function EducationForm({ onPrevious, onNext, data, setData }) {
   return (
     <form action="" className="form" onSubmit={handleSubmit}>
       <h2>Education</h2>
-      <div className="education-fields">
+      <div className="list">
         <InputField
           initialValue={data.education?.school ?? ''}
           label="School where you studied"

@@ -4,7 +4,6 @@
 
 Important:
 - Download CV on PDF and DOCX
-- Refactor styles
 - Improve styles
 - Responsive design
 

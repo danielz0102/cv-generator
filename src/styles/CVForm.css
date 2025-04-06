@@ -24,31 +24,28 @@
   }
 }
 
-.professional-fields,
-.education-fields,
-.skills-fields,
-.responsabilities {
+.list {
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
 
-.skills-fields .counter-btn {
-  align-self: center;
-}
+  & .counter-btn {
+    align-self: center;
+  }
 
-.skills-fields ul {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 
-.form-field-group {
-  display: flex;
-  gap: 8px;
+  & .form-field-group {
+    display: flex;
+    gap: 8px;
 
-  & > .form-field {
-    flex: 1;
+    & > .form-field {
+      flex: 1;
+    }
   }
 }
 

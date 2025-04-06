@@ -20,7 +20,7 @@ export function SkillsForm({ onPrevious, onNext, data, setData }) {
   return (
     <form action="" className="form" onSubmit={handleSubmit}>
       <h2>Skills</h2>
-      <div className="skills-fields">
+      <div className="list">
         <p>
           Enumerate some skills you would like to show{' '}
           <span className="info">(optional, max. 5)</span>
