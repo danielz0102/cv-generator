@@ -22,6 +22,11 @@
   & .form-field:last-child {
     grid-column: span 2;
   }
+
+  @media (width < 500px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .list {
@@ -45,6 +50,10 @@
 
     & > .form-field {
       flex: 1;
+    }
+
+    @media (width < 500px) {
+      flex-direction: column;
     }
   }
 }
