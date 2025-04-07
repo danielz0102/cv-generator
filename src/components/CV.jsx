@@ -96,7 +96,7 @@ function Company({ data }) {
           </p>
         </div>
       </header>
-      <ul className="container">
+      <ul className="container enumarate">
         {responsabilities?.map((responsability, index) => (
           <li key={index}>{responsability}</li>
         ))}
@@ -111,7 +111,7 @@ function Skills({ data }) {
   return (
     <section className="container">
       <h3 className="cv-subtitle">Additional skills</h3>
-      <ul className="container">
+      <ul className="container enumarate">
         {data?.map((skill, index) => (
           <li key={index}>{skill}</li>
         ))}

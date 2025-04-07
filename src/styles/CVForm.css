@@ -7,6 +7,7 @@
 
   & h2 {
     text-align: center;
+    font-weight: 500;
   }
 
   & > .move-btn {
@@ -85,6 +86,17 @@ textarea {
   border-radius: 4px;
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 2px 2px 4px #ccc;
+}
+
+input:hover,
+textarea:hover {
+  transform: scale(1.01);
+}
+
 textarea {
   resize: none;
 }
@@ -96,8 +108,9 @@ textarea {
 }
 
 .move-btn {
-  --bg-color: #000;
+  --bg-color: var(--accent);
   --txt-color: #fff;
+  --shadow: #a9bdd7;
 
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -113,13 +126,33 @@ textarea {
   transition: opacity 0.25s;
 
   &:hover {
-    opacity: 0.75;
+    opacity: 0.5;
+  }
+
+  &:active {
+    outline: none;
+    --bg-color: #fff;
+    --txt-color: var(--accent);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 2px 2px 4px var(--shadow);
   }
 }
 
 .btn-secondary {
   --bg-color: #f0f0f0;
-  --txt-color: #000;
+  --txt-color: var(--text-primary);
+
+  &:active {
+    outline: none;
+    --txt-color: var(--text-primary);
+  }
+
+  &:focus {
+    --shadow: #ccc;
+  }
 }
 
 .counter-field {
@@ -153,9 +186,14 @@ textarea {
   justify-content: center;
   cursor: pointer;
 
-  transition: opacity 0.25s;
+  transition: transform 0.25s;
 
-  &:hover {
-    opacity: 0.5;
+  &:active {
+    transform: scale(1.1);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 2px 2px 4px #ccc;
   }
 }

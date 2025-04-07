@@ -67,3 +67,8 @@
 .school {
   text-transform: uppercase;
 }
+
+.enumarate {
+  list-style-type: disc;
+  padding-left: 32px;
+}
